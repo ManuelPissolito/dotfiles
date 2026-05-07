@@ -1,0 +1,202 @@
+"$schema" = 'https://starship.rs/config-schema.json'
+
+# Formato principal
+format = """
+[](color_1)\
+$os\
+$username\
+[](bg:color_2 fg:color_1)\
+$directory\
+[](bg:color_3 fg:color_2)\
+$git_branch\
+$git_status\
+[](bg:color_4 fg:color_3)\
+$c\
+$rust\
+$golang\
+$nodejs\
+$php\
+$java\
+$kotlin\
+$python\
+$dart\
+[](bg:color_5 fg:color_4)\
+$aws\
+$azure\
+$gcloud\
+[](bg:color_6 fg:color_5)\
+$docker_context\
+$kubernetes\
+$helm\
+$nats\
+[ ](fg:color_6)\
+$cmd_duration\
+\n\n$character"""
+
+# Paleta
+palette = 'blue_gradient'
+
+[palettes.blue_gradient]
+color_1 = '#9AD7EF'
+color_2 = '#73C7E8'
+color_3 = '#4BB7E2'
+color_4 = '#24A7DB'
+color_5 = '#1D89B4'
+color_6 = '#176B8C'
+color_text = '#0c2e44'
+color_text_dim = '#2a506b'
+
+# Sistema
+[os]
+disabled = false
+style = "bg:color_1 fg:color_text"
+
+[os.symbols]
+Ubuntu = "󰕈"
+Raspbian = "󰐿"
+Linux = "󰌽"
+Fedora = "󰣛"
+Android = ""
+Arch = "󰣇"
+Debian = "󰣚"
+Redhat = "󱄛"
+RedHatEnterprise = "󱄛"
+
+[username]
+show_always = true
+style_user = "bg:color_1 fg:color_text bold"
+style_root = "bg:color_1 fg:color_yellow bold"
+format = '[ $user]($style)'
+
+[directory]
+style = "bg:color_2 fg:color_text"
+format = "[ $path ]($style)"
+truncation_length = 2
+truncation_symbol = "…/"
+
+[directory.substitutions]
+"Documentos" = "󰈙 "
+"Descargas" = " "
+"Música" = "󰝚 "
+"Imágenes" = " "
+"Desarrollo" = " "
+"Obsidian" = " "
+"Software" = " "
+
+[git_branch]
+symbol = ""
+style = "bg:color_3"
+format = '[[ $symbol $branch ](fg:color_text bg:color_3)]($style)'
+
+[git_status]
+style = "bg:color_3"
+format = '[[($all_status$ahead_behind )](fg:color_text_dim bg:color_3)]($style)'
+
+[nodejs]
+symbol = ""
+style = "bg:color_4"
+format = '[[ $symbol( $version) ](fg:color_text bg:color_4)]($style)'
+
+[c]
+symbol = " "
+style = "bg:color_4"
+format = '[[ $symbol( $version) ](fg:color_text bg:color_4)]($style)'
+
+[rust]
+symbol = ""
+style = "bg:color_4"
+format = '[[ $symbol( $version) ](fg:color_text bg:color_4)]($style)'
+
+[golang]
+symbol = ""
+style = "bg:color_4"
+format = '[[ $symbol( $version) ](fg:color_text bg:color_4)]($style)'
+
+[php]
+symbol = ""
+style = "bg:color_4"
+format = '[[ $symbol( $version) ](fg:color_text bg:color_4)]($style)'
+
+[java]
+symbol = " "
+style = "bg:color_4"
+format = '[[ $symbol( $version) ](fg:color_text bg:color_4)]($style)'
+
+[kotlin]
+symbol = ""
+style = "bg:color_4"
+format = '[[ $symbol( $version) ](fg:color_text bg:color_4)]($style)'
+
+[python]
+symbol = ""
+style = "bg:color_4"
+format = '[[ $symbol( $version) ](fg:color_text bg:color_4)]($style)'
+
+[dart]
+symbol = ""
+style = "bg:color_4"
+format = '[[ $symbol( $version) ](fg:color_text bg:color_4)]($style)'
+
+# Infra
+[aws]
+disabled = false
+style = "bg:color_5"
+symbol = " "
+format = '[[ $symbol( $profile)( \($region\)) ](fg:color_text bg:color_5)]($style)'
+
+[azure]
+disabled = false
+style = "bg:color_5"
+symbol = " "
+format = '[[ $symbol( $subscription) ](fg:color_text bg:color_5)]($style)'
+
+[gcloud]
+disabled = false
+style = "bg:color_5"
+symbol = " "
+format = '[[ $symbol( $account)( \($project\)) ](fg:color_text bg:color_5)]($style)'
+
+[docker_context]
+symbol = " "
+style = "bg:color_6"
+format = '[[ $symbol( $version) ](fg:color_text bg:color_6)]($style)'
+
+[kubernetes]
+symbol = " "
+style = "bg:color_6"
+disabled = false
+format = '[[ $symbol( $context) ](fg:color_text bg:color_6)]($style)'
+
+[helm]
+symbol = " "
+style = "bg:color_6"
+disabled = false
+format = '[[ $symbol( $version) ](fg:color_text bg:color_6)]($style)'
+
+[nats]
+symbol = "󰇮 "
+style = "bg:color_6"
+disabled = false
+format = '[[ $symbol( $name) ](fg:color_text bg:color_6)]($style)'
+
+[time]
+disabled = true
+
+[line_break]
+disabled = false
+
+[character]
+disabled = false
+success_symbol = '[❯](bold fg:#1D89B4)'
+error_symbol = '[❯](bold fg:#e05f65)'
+
+[cmd_duration]
+show_milliseconds = false
+format = " [$duration](fg:color_text_dim) "
+disabled = false
+min_time = 2000
+
+[status]
+disabled = false
+format = '[ $symbol $signal_name $status ](bg:#c0392b fg:#ffffff)'
+symbol = '✘'
